@@ -5,6 +5,10 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.0]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      # token auth
+      t.string :authentication_token, null: false, default: ""
+      t.datetime :authentication_token_created_at
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
