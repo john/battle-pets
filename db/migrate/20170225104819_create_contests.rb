@@ -4,13 +4,12 @@ class CreateContests < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.string :algorithm
-      t.datetime :start_at
-      t.datetime :won_at
-      t.integer :won_by
+      t.string :winning_characteristic
+      t.integer :created_by
 
       t.timestamps
     end
     add_index :contests, :name
-    add_index :contests, :won_by
+    add_index :contests, :created_by
   end
 end
