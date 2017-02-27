@@ -2,10 +2,8 @@ module Api
   class ApplicationController < ActionController::Base
 
     before_action :get_auth_token
-    before_action :authenticate_user_from_token!, :except => [:new, :create]
+    before_action :authenticate_user_from_token!
 
-
-    #protect_from_forgery with: :exception, prepend: true
     protect_from_forgery with: :null_session
 
     rescue_from(ActionController::RoutingError, ActionController::UnknownController, ActiveRecord::RecordNotFound) do
@@ -16,6 +14,7 @@ module Api
     private
 
     def authenticate_user_from_token!
+
       if @auth_token.blank?
         head :unauthorized
       else

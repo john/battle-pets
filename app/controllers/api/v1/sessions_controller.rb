@@ -1,14 +1,8 @@
 class Api::V1::SessionsController < Devise::SessionsController
 
-  protect_from_forgery with: :null_session
-
-  skip_before_action :verify_authenticity_token
-
   skip_before_action :authenticate_user!
-
   before_action :authenticate_api_v1_user!, :except => [:new, :create]
   before_action :ensure_params_exist, :except => [:new, :destroy, :create]
-  #respond_to :json
 
   def create
     resource = User.find_for_database_authentication(:email => params[:user][:email])

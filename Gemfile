@@ -55,6 +55,8 @@ gem "devise"
 gem "devise-token_authenticatable"
 gem "haml-rails"
 gem "rails_admin", "1.1.0"
+gem "rest-client"
+
 gem "html2haml", :group => [:development]
 gem "factory_girl_rails", :group => [:test]
 gem "shoulda-matchers", :group => [:test]
