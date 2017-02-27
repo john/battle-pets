@@ -4,11 +4,7 @@ RSpec.describe "Users", type: :request do
   describe "POST /api/1/users" do
     # let(:user) { create :user }
 
-    # it "works! (now write some real specs)" do
-    #   get users_path
-    #   expect(response).to have_http_status(200)
-    # end
-    it "succeeds" do
+    it "creates new user" do
       # user = create(:admin_user)
       # sign_in user
 

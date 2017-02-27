@@ -5,6 +5,7 @@ class CreateBattles < ActiveRecord::Migration[5.0]
       t.datetime :start_at
       t.datetime :won_at
       t.integer :won_by
+      t.boolean :upset
       t.integer :created_by
 
       t.timestamps
