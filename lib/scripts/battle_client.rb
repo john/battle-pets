@@ -1,5 +1,3 @@
-# {'name': 'Doug', 'strength': 12, 'intelligence': 22, 'speed': 21, 'integrity': 66}
-
 @heds = {content_type: :json, accept: :json}
 @wunder_api = Rails.application.secrets.pets_api_url
 
@@ -11,7 +9,12 @@ def create_pet
   hed = {content_type: :json, accept: :json, "X-Pets-Token": Rails.application.secrets.pets_token}
   resp = RestClient.post("#{@wunder_api}/pets", payload.gsub("'", '"'), hed )
   if resp.code == 201
-    pet = Pet.create(JSON.parse(resp.body))
+
+    pet_hash = JSON.parse(resp.body)
+    pet_hash['uuid'] = pet_hash['id']
+    pet_hash.delete('id')
+
+    pet = Pet.create(pet_hash)
     @player1 = pet.id.to_s
   end
   puts "\nOk, your new pet was added, player 1 is #{resp.body['name']}. Pick again."
@@ -132,7 +135,6 @@ else
   exit
 end
 
-# Create Participants
 payload = {participant: {battle_id: battle_id, pet_id: @player1}}
 resp = RestClient.post("#{@api}/participants", payload.to_json, @heds)
 
@@ -160,9 +162,9 @@ else
   battle = JSON.parse(resp.body)
   winner = Pet.find(battle['won_by'])
 
-  if battle['upset'].to_s == 'true'
-    puts "UPSET! "
-  end
+  # if battle['upset'].to_s == 'true'
+  #   puts "UPSET! "
+  # end
 
   puts "\nWe have a winner! #{winner.name}!"
 end
