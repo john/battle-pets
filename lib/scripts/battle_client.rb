@@ -119,7 +119,6 @@ show_pets
 
 puts "\nPick contestant #2:"
 player2 = STDIN.gets.strip
-puts "----------> player 2: #{player2}"
 
 # Create Battle
 payload = {battle: {contest_id: contest_id}}
