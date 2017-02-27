@@ -26,17 +26,9 @@ class FightBattleJob < ApplicationJob
     # sort participants by value of that characteristic (key)
     sorted_by_score = participants_array.sort_by{|p| p[:val].to_f}.reverse!
 
-    # logger.debug "----------> sorted participants: #{sorted_by_score.inspect}"
-    # logger.debug "===========> participants_array 0: #{participants_array[0]}"
-    # logger.debug "===========> participants_array 1: #{participants_array[1]}"
-    # logger.debug "===========> sorted_by_score 0: #{sorted_by_score[0]}"
-    # logger.debug "===========> sorted_by_score 1: #{sorted_by_score[1]}"
-
     if (natural_winner.id.to_s == participants_array[0][:id]) || (participants[0].pet.send(characteristic).to_i == participants[1].pet.send(characteristic).to_i)
-      #logger.debug "----------> natural winner won"
       battle.upset = false
     else
-      #logger.debug "----------> upset!"
       battle.upset = true
     end
 

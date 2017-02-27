@@ -41,32 +41,32 @@ end
 
 ###### RUN BATTLE
 
-# puts "\nWhat endpoint do you want to use? (1=local, 2=Heroku)"
-# endpoint = STDIN.gets.strip
-# if endpoint == "1"
-#   @api = "http://localhost:3000/api/v1"
-# elsif endpoint == "2"
-#   @api = "https://battle-pets.herokuapp.com/api/v1"
-# else
-#   puts "C'mon, be serious"
-#   exit
-# end
-#
-# puts "\nThanks. Who and I speaking with?"
-# name = STDIN.gets.strip
-#
-# puts "\nHi, #{name}. What's your email?"
-# email = STDIN.gets.strip
-#
-# puts "\nDo you have an account? (y/n)"
-# has_account = STDIN.gets.strip
+puts "\nWhat endpoint do you want to use? (1=local, 2=Heroku)"
+endpoint = STDIN.gets.strip
+if endpoint == "1"
+  @api = "http://localhost:3000/api/v1"
+elsif endpoint == "2"
+  @api = "https://battle-pets.herokuapp.com/api/v1"
+else
+  puts "C'mon, be serious"
+  exit
+end
+
+puts "\nThanks. Who and I speaking with?"
+name = STDIN.gets.strip
+
+puts "\nHi, #{name}. What's your email?"
+email = STDIN.gets.strip
+
+puts "\nDo you have an account? (y/n)"
+has_account = STDIN.gets.strip
 
 #############
 
-@api = "http://localhost:3000/api/v1"
-name = 'john'
-email = 'john@fnnny.com'
-has_account = 'y'
+# @api = "http://localhost:3000/api/v1"
+# name = 'john'
+# email = 'john@fnnny.com'
+# has_account = 'y'
 
 if has_account.starts_with?('y')
   puts "\nPassword?"
@@ -159,8 +159,6 @@ unless get_status.starts_with?('y')
 else
   resp = RestClient.get("#{@api}/battles/#{battle_id}", @heds)
   battle = JSON.parse(resp.body)
-  puts "---------> battle: #{battle.inspect}"
-  puts "---------> upset: #{battle['upset']}"
   winner = Pet.find(battle['won_by'])
 
   if battle['upset'].to_s == 'true'
