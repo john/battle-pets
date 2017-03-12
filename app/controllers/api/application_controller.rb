@@ -1,8 +1,7 @@
 module Api
   class ApplicationController < ActionController::Base
-
-    before_action :get_auth_token
     before_action :authenticate_user_from_token!
+    before_action :only_allow_json
 
     protect_from_forgery with: :null_session
 
@@ -14,21 +13,17 @@ module Api
     private
 
     def authenticate_user_from_token!
-
-      if @auth_token.blank?
-        head :unauthorized
-      else
-        @user = nil
-        User.find_each do |u|
-          if Devise.secure_compare(u.authentication_token, @auth_token)
-            @user = u
-          end
+      auth_token = request.headers["X-AUTH-TOKEN"]
+      if u = User.find_by_authentication_token(auth_token)
+        if Devise.secure_compare(u.authentication_token, auth_token)
+          @user = u
         end
       end
+      head :unauthorized if @user.blank?
     end
 
-    def get_auth_token
-      @auth_token = request.headers["X-AUTH-TOKEN"]
+    def only_allow_json
+      head 422 and return unless request.headers["ACCEPT"].present? && request.headers["ACCEPT"] == 'application/json'
     end
 
   end

@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://wunder-pet-api-staging.herokuapp.com/pets
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name": "1489350171", "strength": 1, "intelligence": 1, "speed": 1,
+        "integrity": 1}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.1 (darwin16.4.0 x86_64) ruby/2.3.1p112
+      Content-Type:
+      - application/json
+      X-Pets-Token:
+      - UXhygiNEP1vYvRuPA4EluyJxLnscJ6uerTsUlnObFUqKxoyCnN
+      Content-Length:
+      - '84'
+      Host:
+      - wunder-pet-api-staging.herokuapp.com
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '115'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 12 Mar 2017 20:22:52 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAD2KQQqAIBAA/7LnBHc1035T22ZCSZSXiP6edOg2M8wNaYIe
+        KFgij0E5GkdlDQ8qOI+KjO541pYcMzSQh03qjdYH02rssLazHJJjWaDHKrvI
+        9FHKRdY1Rcksf4hHKle15wVwdt9idwAAAA==
+    http_version: 
+  recorded_at: Sun, 12 Mar 2017 20:22:52 GMT
+recorded_with: VCR 3.0.3

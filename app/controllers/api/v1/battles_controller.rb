@@ -9,15 +9,11 @@ module Api::V1
       end
     end
 
-    def index
-      # TODO: implement
-    end
-
     def create
       @battle = Battle.new(battle_params)
       @battle.created_by = @user.id if @user
       if @battle.save
-        render json: @battle, status: :ok
+        render json: @battle, status: 201
       else
         render json: {error: "Couldn't create battle."}, status: :unprocessable_entity
       end
@@ -32,6 +28,9 @@ module Api::V1
         render json: {error: "Needs to be a PATCH."}, status: :unprocessable_entity
       end
     end
+
+
+    private
 
     def battle_params
       params.require(:battle).permit(:contest_id, :start_at, :won_at, :won_by, :created_by)

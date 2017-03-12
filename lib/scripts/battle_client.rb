@@ -1,26 +1,20 @@
+# To run:
+# `bundle exec rails runner lib/scripts/battle_client.rb`
+
 @heds = {content_type: :json, accept: :json}
-@wunder_api = Rails.application.secrets.pets_api_url
 
 ###### METHODS
 
 def create_pet
-  puts "\nEnter the deets for you new pet in this format, with single quotes: {'name': 'Leonard', 'strength': 12, 'intelligence': 22, 'speed': 21, 'integrity': 66}"
+  puts "\nEnter the deets for you new pet in this format: {\"name\": \"Rainbow Dash\", \"strength\": 12, \"intelligence\": 22, \"speed\": 21, \"integrity\": 66}"
   payload = STDIN.gets.strip
-  hed = {content_type: :json, accept: :json, "X-Pets-Token": Rails.application.secrets.pets_token}
-  resp = RestClient.post("#{@wunder_api}/pets", payload.gsub("'", '"'), hed )
-  if resp.code == 201
-
-    pet_hash = JSON.parse(resp.body)
-    pet_hash['uuid'] = pet_hash['id']
-    pet_hash.delete('id')
-
-    pet = Pet.create(pet_hash)
-    @player1 = pet.id.to_s
-  end
-  puts "\nOk, your new pet was added, player 1 is #{resp.body['name']}. Pick again."
+  # hed = {content_type: :json, accept: :json, "X-AUTH-TOKEN'": "ysGt8_vnnB5Hb5B-ms1o"}
+  resp = RestClient.post("#{@api}/pets", payload, @heds )
+  pet_hash = JSON.parse(resp.body)
+  puts "\nOk, your new pet was added, player 1 is #{pet_hash['name']}. Pick again."
 end
 
-def show_pets(create=false)
+def show_pets
   resp = RestClient.get("#{@api}/pets", @heds)
   if resp.code != 200
     puts "I'm sorry, I couldn't get the list of pets."
@@ -42,7 +36,7 @@ def show_pets(create=false)
 end
 
 
-###### RUN BATTLE
+###### START
 
 puts "\nWhat endpoint do you want to use? (1=local, 2=Heroku)"
 endpoint = STDIN.gets.strip
@@ -55,7 +49,7 @@ else
   exit
 end
 
-puts "\nThanks. Who and I speaking with?"
+puts "\nThanks. And with whom am I speaking?"
 name = STDIN.gets.strip
 
 puts "\nHi, #{name}. What's your email?"
@@ -128,7 +122,7 @@ payload = {battle: {contest_id: contest_id}}
 # This needs to return the object, so it can be used to create the participants
 
 resp = RestClient.post("#{@api}/battles", payload.to_json, @heds)
-if resp.code == 200
+if resp.code == 202
   battle_id = JSON.parse(resp.body)["id"]
 else
   puts "I'm sorry, something went wrong creating the battle"

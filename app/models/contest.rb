@@ -1,4 +1,7 @@
 class Contest < ApplicationRecord
+
+  has_many :battles
+
   validates :name, length: { maximum: 200 }, presence: true
 
   def api_hash

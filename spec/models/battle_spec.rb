@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Battle, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:pets).through(:participants) }
+  it { should belong_to(:contest) }
 end

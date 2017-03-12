@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://wunder-pet-api-staging.herokuapp.com/pets
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.1 (darwin16.4.0 x86_64) ruby/2.3.1p112
+      Content-Type:
+      - application/json
+      X-Pets-Token:
+      - UXhygiNEP1vYvRuPA4EluyJxLnscJ6uerTsUlnObFUqKxoyCnN
+      Host:
+      - wunder-pet-api-staging.herokuapp.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1297'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 12 Mar 2017 20:32:53 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAK2YS49bRRCF/wryOiV1VVe/soyiiAWgESxYIBbVr4klxxM5
+        jmCE+O+cGxBzB+wRFndnWzP+br1OnfJPv+32ffd6JxJ4zNBIrVbSWRIV9YNc
+        bzn5XENW3b3aHe3DwF+/O3ye8xHvP51P43h/fr97zYJ3H8fAlwm/2u2P53E4
+        7O/HseEfRP785P60Pz/uXsf4+6u/uNy1h5AqiSZH6lqlKkOJa2OfC6vGFfdb
+        +3UL6PBZnTUjrzOSJl6CtUitmNdYm1aJq2DHYb8JNpTuHA9EqHGQhpgoewnk
+        3OARvbkm7gn79uHz/RZUYQ3JUqDpDJWVMqkkMVJOTWYWh+I+Ub8ZD0c79W3C
+        TSU1FYqS61JaR3X2RlK0lsGlNbEn8N37z1tAq7MyNTbyLiXS3ALl4RNyjGep
+        6Kpp9Qn6nR3bJm0smJIyrVAu1kkbAyvSqcYR6+RQgvIqyftjty2w6iTFUoWs
+        IrFaeiHT4Qh9JlN5pjbmE/b7hzpO5y24zbXhbSYKuSNcs0w2JyrtR5ZefR95
+        NbU/jmPfJMuhKnonMc0WJgYIrZwFtc4xiR8SvMzxhP3aTqdNsLGk5LIxcusg
+        F3GgrtMalVqmL1KqD6u5ffPeTltQLWeZvglNaZ60Q5at+EZxmuMWVSWtOvmt
+        HTcZHwhjyLVAIpygsC5Tnt1hhrjj4+F5nWFAZQtq7lFazEYuL8LYC/gDQech
+        iXstfub0jOo3SfAcyG9jNHGBHLZZKVvFK4MwzVrV+1WCf/hgp/PjRzueP/13
+        eHDX4C7UglxmqKHPgCdIh2EFZY0zxtSLD/Ei/IaEX6enltIwjVR4IGBlodJ9
+        Jz+0YIQLe20X6Tck/jp9zlHzKIFGyxhjXTTaw2vMgS6QNpNmuUjXTTLvQnEz
+        GbXMCz0a1aSKhVFa8Dw8qnKRHjaJ3Vfpk5m4eCxFbnNpdUbmMQOzl9olXaTH
+        Legt+1piGtSnK9iOqAF0zQiDoDNrU+ypi/S0SdfNoCNHJTfRcNpjR7vXRFJZ
+        s5bqkI6L9LxJ5s2WYsNpDsHEwRZBxcVB1BeLW1zsa2l7Y6dxePzq0/IQ4xY9
+        16vRc461wh2EsOxMXXygmackTiKkVcJw1/i3qOzVB+DYmiWoHAdb9K4qXG/o
+        2CpYJdlVZrduvePDL2/scHhO/hsc/snlq4lXzlIDuM4Cmm4o1gmIBGKw2Rrs
+        b1/5wBvG7AVtF1iunjrBfzEUXT3GbARizx3ynrO11ZC/2z/0h9OVSPMNoY6E
+        c4W1I7EdToHRbRZGIZY2eucUUetVqDfM9PVQsalqshrIpy9TxVgiDQUGsUXj
+        InVtPe9umOQXmDYy9oT74m+R3jAoO6wTMZbeR8zeVrN0d8P8vuB1mwYJDsq5
+        eC9NFcqJLUm9NQ8RC2Om1fzclU3skHS3bCtyo2JmWZYtrfAJoZiy77D4fsVk
+        t0lysf1RRUSmAcZv4njKzkEtamwCnz/BXUN5k+zOUEXhfmKFKcFmQHZlJCyK
+        XnMIuKo0r6Gb+D7fcywzIqlpUSRXcUYst2JvQ1NO6pXXJeVNbB+WL2QXt8uY
+        BZEWH7ECUF2nHdOZGkOI19AbTMcLJwR2viBcCsktZt4ZWYTx45gCqu3El2fQ
+        TUQQh7ZI5oIDfPlNxzejEjOT4DZu0ylOp9W+xQ7GODlOfEUI/0XmZ2B+chnd
+        J52WyDMvh79rKGtTXE6l+ZqTT3F9+PP/ksGf/wA2pHPGwhIAAA==
+    http_version: 
+  recorded_at: Sun, 12 Mar 2017 20:32:53 GMT
+recorded_with: VCR 3.0.3
